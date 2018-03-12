@@ -1,40 +1,29 @@
 import matplotlib.pyplot as plt 
 import numpy as np
 
-x = np.linspace(-1,1,50)
+x = np.linspace(-1,6,50)
 y1 = 2*x+2
 y2 = x**2
+y3 = x+1
 
-plt.figure()
-plt.plot(x,y1)
 
 plt.figure(num=3,figsize=(8,4))
-plt.plot(x,y2)
-plt.plot(x,y1,color='red',linewidth=1.2,linestyle='--')
-
+l1, =plt.plot(x,y2,label='first')
+l2, =plt.plot(x,y1,color='red',linewidth=1.2,linestyle='--',label='second')
+plt.plot(x,y3,label='third')
 plt.xlim((-1,6))
 plt.ylim((-2,6))
-plt.xlabel('a')
-plt.ylabel('b') 
+plt.xlabel('first')
+plt.ylabel('second') 
 
-new_ticks = np.linspace(-1,2,6)
+new_ticks = np.linspace(-1,6,12)
 print(new_ticks)
 plt.xticks(new_ticks)
 plt.yticks([-2,-1,1,5,6],
             [r'$a$',r'$b$',r'$c$',r'$d$',r'$e$'])
 
-#gca ='get current axis'
-ax = plt.gca()
-#设置边框颜色
-ax.spines['right'].set_color('none')
-ax.spines['top'].set_color('red')
-#设置那两条边作为坐标轴
-ax.xaxis.set_ticks_position('bottom')
-ax.yaxis.set_ticks_position('left')
-#设置坐标轴的位置
-ax.spines['bottom'].set_position(('data',0))#data,outward,axes(轴的百分比)
-ax.spines['left'].set_position(('data',0))
-
+#plt.legend(),labels替代了原来的label
+plt.legend(handles=[l1,l2,],labels=['aaa','bbb'],loc='best')
 
 plt.show()
  
