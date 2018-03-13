@@ -16,12 +16,15 @@ ax4 = plt.subplot2grid((3,3),(2,0),colspan=2,)
 """
 
 # method 2 gridspec
+'''
 plt.figure()
 gs = gridspec.GridSpec(3,3)
 ax1 = plt.subplot(gs[0,:])
 ax2 = plt.subplot(gs[1:3,0:2])
 ax3 = plt.subplot(gs[1,2])
 ax4 = plt.subplot(gs[2,2])
+'''
+
 
 
 
